@@ -66,10 +66,7 @@ func keyboardNoteType(forKeyboardNoteType noteType: KeyboardNoteType, interval: 
     
     if let index = KeyboardNoteType.allCases.firstIndex(of: noteType) {
         
-        var newIndex = index.advanced(by: interval.numberOfHalfSteps())
-        if newIndex >= 12 {
-            newIndex -= 12
-        }
+        var newIndex = index.advanced(by: interval.numberOfHalfSteps()) % 12
         return KeyboardNoteType.allCases[newIndex]
         
     }
